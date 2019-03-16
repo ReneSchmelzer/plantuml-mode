@@ -23,8 +23,14 @@ unit:
 install:
 	${CASK} install
 
-clean:
+dev-package:
+	$(EMACS) -q --script ./create-plantuml-mode-dev-package.el
+
+dist-clean:
 	rm -Rf .emacs.d
 	rm -Rf .cask
+
+clean:
+	rm -Rf dist/*
 
 .PHONY: all test unit install clean
